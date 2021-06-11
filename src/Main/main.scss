@@ -1,0 +1,35 @@
+.fact-card-container {
+  width: auto;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 10px;
+}
+
+.fact-card {
+  background-color: hsl(156, 19%, 95%);
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 20px;
+  display: block;
+
+  &__author {
+    font-size: 10px;
+  }
+
+  &__title {
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  &__description {
+    font-size: 12px;
+  }
+}
+
+/* for this rule to apply, the min screen with has to be 768px */
+@media only screen and (min-width: 768px) {
+  .fact-card-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
