@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import { format } from 'date-fns'
 
 import './Main.scss'
 
@@ -22,12 +23,16 @@ const Main = () => {
     })
   }, [])
 
+  // console.log('formated date:', formatDate)
+
   return (
     <ul className="fact-card-container">
       {catFactz.map(({ createdAt, text }) => {
+        const formatedDate = format(new Date(createdAt), 'MMM-do-y@ h:mmaaa')
+
         return (
           <li className="fact-card">
-            <p className="fact-card__date">{createdAt}</p>
+            <p className="fact-card__date">{formatedDate}</p>
             <p className="fact-card__text">{text}</p>
           </li>
         )
@@ -35,5 +40,4 @@ const Main = () => {
     </ul>
   )
 }
-
 export default Main
